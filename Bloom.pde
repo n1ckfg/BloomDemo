@@ -1,13 +1,14 @@
 import com.thomasdiewald.pixelflow.java.DwPixelFlow;
 import com.thomasdiewald.pixelflow.java.imageprocessing.filter.DwFilter;
 import processing.opengl.PGraphics2D;
+import processing.opengl.PGraphics3D;
 
 DwPixelFlow context;
 DwFilter filter;
-PGraphics2D tex;
+PGraphics3D tex;
 
 void bloomSetup() {
-  tex = (PGraphics2D) createGraphics(width, height, P2D);
+  tex = (PGraphics3D) createGraphics(width, height, P3D);
   context = new DwPixelFlow(this);
   filter = new DwFilter(context);
   //filter.bloom.setBlurLayers(10);

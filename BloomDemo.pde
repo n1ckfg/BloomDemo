@@ -1,7 +1,7 @@
 ArrayList<Stroke> strokes = new ArrayList<Stroke>();
 
 void setup() {
-  size(1280, 720, P2D);
+  size(1280, 720, P3D);
   background(0);
   strokeJoin(ROUND);
   strokeCap(ROUND);
