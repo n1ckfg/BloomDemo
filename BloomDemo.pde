@@ -3,13 +3,18 @@ ArrayList<Stroke> strokes = new ArrayList<Stroke>();
 void setup() {
   size(1280, 720, P2D);
   background(0);
+  strokeJoin(ROUND);
+  strokeCap(ROUND);
   bloomSetup();
 }
 
 void draw() {
   if (mousePressed) {
     if (strokes.size() < 1) strokes.add(new Stroke());
-    strokes.get(strokes.size()-1).points.add(new PVector(mouseX, mouseY));
+    Stroke s = strokes.get(strokes.size()-1);
+    if (s.points.size() < 1 || dist(mouseX, mouseY, pmouseX, pmouseY) > 2) {
+      s.points.add(new PVector(mouseX, mouseY));
+    }
   }
  
   tex.beginDraw();
