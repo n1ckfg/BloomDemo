@@ -3,22 +3,20 @@
 import peasy.*;
 
 PeasyCam cam;
-PMatrix mat_scene;
 
 void setup() {
-  size(640,480,P3D);
-  mat_scene = getMatrix();
+  size(1280, 720, P3D);
+  bloomSetup();
   
   cam = new PeasyCam(this, 100);
   cam.setMinimumDistance(50);
   cam.setMaximumDistance(500);
-  
-  bloomSetup();
 }
 
 void draw() {
   background(0);
-  pushMatrix();
+  
+  bloomMatrixStart();
   
   tex.beginDraw();
   tex.setMatrix(getMatrix());
@@ -34,8 +32,7 @@ void draw() {
   tex.popMatrix();
   tex.endDraw();
   
-  setMatrix(mat_scene);
-  bloomDraw();
+  bloomMatrixEnd();
   
-  popMatrix();
+  surface.setTitle(""+frameRate);
 }
